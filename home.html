@@ -1,13 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DoVirtual, Because Virtuality is the New Reality</title>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/fontawesome_all.css">
-</head>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DoVirtual, Because Virtuality is the New Reality</title>
+        <link rel="stylesheet" href="/css/styles.css">
+        <link rel="stylesheet" href="/css/fontawesome_all.css">
+        <link rel="icon" type="image/png" href="/images/favicon.png">
+    </head>
 <body>
     <header>
         <div class="content">
@@ -21,7 +22,38 @@
                 <li><a href="book.html"><i class="fal fa-laptop"></i>Book a Demo</a></li>
             </ul>
         </nav>
-        <img src="/images/grid.svg" alt="Other apps" title="Other Apps" width="44" class="grid_icon">
+        <div class="popup" onclick="myFunction()">
+        <img src="/images/grid.svg" alt="Other apps" title="Other Apps" width="44" class="grid_icon" >
+        <span class="popuptext" id="myPopup">
+            <div class="rowpop">
+                <div class="brand">
+                    <a href="https://payfect.com/" target="_blank" ><img src="/images/payfect-logo.png" alt=""></a>
+                    <h3>PAYFECT</h3>
+                </div>
+                <div class="brand">
+                    <img src="/images/reviews.png" alt="">
+                    <h3>Reviews</h3>
+                </div>
+            </div>
+            <div class="rowpop">
+                <div class="brand">
+                    <img src="/images/DoVirtual.png" alt="">
+                    <h3>DoVirtual</h3>
+                </div>
+                <div class="brand">
+                    <img src="/images/seethepro.png" alt="">
+                    <h3>seethepro</h3>
+                </div>
+            </div>
+        </span>
+    </div>
+    <script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+        </script>
         </div>
     </header>
     <div class="top-banner">
@@ -32,7 +64,7 @@
             <div class="text">
                 <img src="/images/logo-big.png" alt="">
                 <p>Because Virtuality is the New Reality</p>
-                <a href="#" class="primary">Book a Demo <i class="fal fa-laptop"></i> </a>
+                <a href="book.html" target="_self" class="primary">Book a Demo <i class="fal fa-laptop"></i> </a>
             </div>
         </div>
     </div>
@@ -148,32 +180,48 @@
             <img src="/images/location.png" alt="">
             <div class="text">
                 <h5>Address</h5>
-                <p>20271 SW Acacia St<br>
+                <p><a href="https://www.google.com/maps/place/20271+SW+Acacia+St+Suite+110,+Newport+Beach,+CA+92660,+USA/@33.6591618,-117.8795202,19z/data=!4m13!1m7!3m6!1s0x80dcdfaca68cf92f:0x9fbe00d082f2a8ac!2s20271+SW+Acacia+St+Suite+110,+Newport+Beach,+CA+92660,+USA!3b1!8m2!3d33.6591607!4d-117.878973!3m4!1s0x80dcdfaca68cf92f:0x9fbe00d082f2a8ac!8m2!3d33.6591607!4d-117.878973" target="_blank">
+                    20271 SW Acacia St<br>
                     Suite 110<br>
                     Newport Beach<br>
-                    CA 92660</p>
+                    CA 92660</a></p>
             </div>
-            <img src="/images/qr.png" alt="">
+            <img id="myImg" src="/images/qr-big.png" alt="Scan QR Code - to connect to a representative" style="width:100%;max-width:100px">
+            <!-- The Modal -->
+            <div id="myModal" class="modal">
+                <!-- The Close Button -->
+                <span class="close">&times;</span>
+                <!-- Modal Content (The Image) -->
+                <img class="modal-content" id="img01">
+                <!-- Modal Caption (Image Text) -->
+                <div id="caption"></div>
+            </div>
+            <script src="/js/modal.js"></script>
             <div class="text">
                 <h5>Scan QR Code</h5>
                 <p>to connect to a representative</p>
             </div>
             <div class="text">
                 <h5>Phone Number</h5>
-                <p>(123) 456 7890</p>
+                <p><a href="#" target="_blank">(123) 456 7890</a></p>
                 <h5>Support</h5>
-                <p>support@payfect.com</p>
+                <p><a href="mailto:support@payfect.com" target="_blank">support@payfect.com</a></p>
             </div>
         </div>
     </div>
 </footer>
 <div class="copyright">
     <div class="content">
-        <div class="logo">A Payfect Inc Company <img src="/images/logo-payfect.png" alt=""></div>
+        <div class="logo">A Payfect Inc Company <a href="https://payfect.com/" target="_blank"><img src="/images/logo-payfect.png" alt=""></a></div>
         <p>© 2022 DOVIRTUAL. ALL RIGHTS RESERVED.</p>
         <div class="social">
             <p>Connect with us:</p>
-            <div class="logos"><i class="fal fa-facebook"></i> <i class="fal fa-linkedin"></i> <i class="fal fa-instagram"></i> <i class="fal fa-twitter"></i></div> 
+            <div class="logos">
+                <a href="#" target="_blank"><i class="fal fa-facebook"></i></a>
+                <a href="#" target="_blank"><i class="fal fa-linkedin"></i></a>
+                <a href="#" target="_blank"><i class="fal fa-instagram"></i></a>
+                <a href="#" target="_blank"><i class="fal fa-twitter"></i></a>
+            </div> 
         </div>
     </div>
 </div>

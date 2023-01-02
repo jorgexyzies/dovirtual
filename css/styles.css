@@ -80,7 +80,6 @@ html {
   flex: none;
   order: 1;
   flex-grow: 0;
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
 }
 
 .pricings {
@@ -107,6 +106,7 @@ html {
   flex: none;
   order: 0;
   flex-grow: 0;
+  overflow: auto;
 }
 
 .row:nth-child(2) {
@@ -153,9 +153,10 @@ html {
 }
 
 .bookademo-page .section-3 {
-  background: #E1FFFF;
+  background: #e1ffff;
   background-image: url(/images/bg-shedule.png);
   background-repeat: no-repeat;
+  background-position: 100% 100%;
 }
 ::placeholder,
 select,
@@ -167,29 +168,40 @@ options {
   font-size: 14px;
   line-height: 140%;
 }
-input, select {
+input,
+select {
   background: #ffffff;
   border: 1px solid #b2aaaa;
   border-radius: 5px;
   padding: 8px 16px;
-width: 216px;
+  width: 216px;
+  color: #103758;
+  text-transform: capitalize;
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+}
+
+.logos a {
+  text-decoration: none;
 }
 
 input[type="submit"] {
-  background: #0077B5;
-border-radius: 50px;
-display: flex;
-flex-direction: row;
-justify-content: center;
-align-items: center;
-padding: 8px 16px;
-gap: 8px;
-color: #FFFFFF;
-font-family: 'Roboto Condensed';
-font-style: normal;
-font-weight: 700;
-font-size: 14px;
-line-height: 20px;
+  background: #0077b5;
+  border-radius: 50px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 8px 16px;
+  gap: 8px;
+  color: #ffffff;
+  font-family: "Roboto Condensed";
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 20px;
+  border: none;
 }
 
 .forms {
@@ -251,11 +263,9 @@ line-height: 20px;
   flex: none;
   order: 1;
   flex-grow: 0;
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
 }
 
 .card {
-  filter: drop-shadow(0px 0px 8px rgba(0, 0, 0, 0.25));
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -267,6 +277,14 @@ line-height: 20px;
   flex: none;
   order: 0;
   flex-grow: 0;
+  box-shadow: 0px 0px 0px grey;
+  -webkit-transition: box-shadow 0.6s ease-out;
+  box-shadow: 0.8px 0.9px 3px #29c5ff;
+}
+
+.card:hover {
+  box-shadow: 1px 8px 20px #29c5ff;
+  -webkit-transition: box-shadow 0.6s ease-in;
 }
 
 .card h3 {
@@ -369,6 +387,12 @@ header .grid_icon {
   flex-grow: 0;
 }
 
+header .popup {
+  flex: none;
+  order: 2;
+  flex-grow: 0;
+}
+
 header nav ul {
   /* Auto layout */
   display: flex;
@@ -417,6 +441,10 @@ header nav ul li a {
   align-items: center;
   padding: 0px;
   gap: 8px;
+}
+
+header nav ul li a:hover {
+  color: #103758;
 }
 
 header nav ul li a i {
@@ -599,6 +627,15 @@ header nav ul li a i {
   .video-section {
     padding: 32px;
   }
+  .bookademo-page .section-3 {
+    background: #e1ffff;
+    background-image: none;
+  }
+  .forms {
+    gap: 32px;
+    flex-direction: column;
+    display: flex;
+  }
 }
 
 .section-2 {
@@ -622,7 +659,7 @@ header nav ul li a i {
   padding: 0px;
   gap: 32px;
   width: 586px;
-  height: 388px;
+  height: auto;
   flex: none;
   order: 0;
   flex-grow: 1;
@@ -724,7 +761,6 @@ header nav ul li a i {
   font-weight: 300;
   font-size: 36px;
   line-height: 56px;
-  display: flex;
   align-items: center;
   text-align: center;
   text-transform: uppercase;
@@ -771,6 +807,13 @@ header nav ul li a i {
   .testimonial .text p {
     width: 100% !important;
   }
+  .pricings {
+    flex-direction: column !important;
+  }
+  .popup .popuptext {
+    left: -200%;
+    right: auto !important;
+}
 }
 .worried {
   background: linear-gradient(
@@ -805,6 +848,7 @@ header nav ul li a i {
   flex: none;
   order: 0;
   flex-grow: 1;
+  overflow: auto;
 }
 
 .testimonial .text {
@@ -920,6 +964,15 @@ footer .contact {
   width: 800px;
 }
 
+footer .contact .text p a {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+footer .contact .text p a:hover {
+  color: #29c5ff;
+}
+
 footer h5 {
   color: #29c5ff;
   font-style: normal;
@@ -967,6 +1020,7 @@ footer h5 {
   flex: none;
   order: 1;
   flex-grow: 0;
+  font-weight: lighter;
 }
 
 .social {
@@ -1009,4 +1063,243 @@ footer h5 {
   align-items: center;
   text-align: center;
   color: #29c5ff;
+}
+
+/* Style the Image Used to Trigger the Modal */
+#myImg {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg:hover {
+  opacity: 0.7;
+}
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+/* Modal Content (Image) */
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+}
+
+/* Caption of Modal Image (Image Text) - Same Width as the Image */
+#caption {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  text-align: center;
+  color: #ccc;
+  padding: 10px 0;
+  height: 150px;
+}
+
+/* Add Animation - Zoom in the Modal */
+.modal-content,
+#caption {
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close {
+  position: absolute;
+  top: 16px;
+  right: 36px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.clients-page .card {
+  background-color: #023e8a;
+}
+
+.clients-page .card p {
+  color: #29c5ff;
+}
+.vendors-page .section-2 {
+  background: linear-gradient(
+    160deg,
+    #ffffff 5.7%,
+    #ffffff 49.18%,
+    #29c5ff 49.2%,
+    #29c5ff 88.66%
+  ) !important;
+  box-shadow: 0px 0px 62px #29c5ff;
+}
+.vendors-page .section-3 {
+  background: linear-gradient(
+    160deg,
+    #29c5ff 5.7%,
+    #29c5ff 49.18%,
+    #1297e0 49.2%,
+    #1297e0 88.66%
+  ) !important;
+  box-shadow: 0px 0px 62px #29c5ff;
+}
+
+.vendors-page .section-3.bluebg {
+  background: #1297e0 !important;
+  box-shadow: 0px 0px 62px #29c5ff;
+}
+
+.section-3.bluebg h2 span {
+  color: #ffffff;
+  margin-left: 10px;
+}
+
+.vendors-page .card {
+  background-color: #023e8a;
+}
+
+.vendors-page .card p {
+  color: #29c5ff;
+}
+
+/* Popup container - can be anything you want */
+.popup {
+  position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* The actual popup */
+.popup .popuptext {
+  visibility: hidden;
+  text-align: center;
+  position: absolute;
+  z-index: 1;
+  padding: 32px 24px;
+  width: auto;
+  height: auto;
+  background: #ffffff;
+  box-shadow: 0px 0px 45px rgb(0 0 0 / 55%);
+  top: 72px;
+  right: 0%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 32px;
+}
+
+.popup .popuptext .rowpop {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 32px;
+  width: 100%;
+  height: 88px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  z-index: 0;
+}
+
+.popup .popuptext .rowpop .brand {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px;
+  gap: 16px;
+  width: 75px;
+  height: 88px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.popup .popuptext .rowpop .brand img {
+  width: 64px;
+  height: 64px;
+
+}
+
+.popup .popuptext .rowpop .brand h3 {
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 16px;
+  color: #0093D4;
+  text-transform: uppercase;
+}
+
+/* Toggle this class - hide and show the popup */
+.popup .show {
+  visibility: visible;
+  -webkit-animation: fadeIn 1s;
+  animation: fadeIn 1s;
+}
+
+/* Add animation (fade in the popup) */
+@-webkit-keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
